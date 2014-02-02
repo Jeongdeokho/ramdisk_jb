@@ -25,10 +25,10 @@ on init
 
 on early-fs
 	insmod /lib/modules/j4fs.ko
-	mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs ro
+	mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs rw
 	insmod /lib/modules/vibrator.ko
  
-	mount ext4 /dev/block/mmcblk0p11 /system wait ro
+	mount ext4 /dev/block/mmcblk0p11 /system wait rw
 
 on boot
 #	write /sys/class/sec/switch/usb_sel PDA
@@ -51,6 +51,8 @@ service debuggerd /system/bin/debuggerd
 service console /system/bin/sh
 	console
 
+#service playlpm /system/bin/playlpm
+#    	user root
 service charger /charger
     class default
     user root
